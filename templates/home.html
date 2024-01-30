@@ -11,43 +11,53 @@
       crossorigin="anonymous"
     />
     <style>
-        #banner{
-            height: 360px;
-            width: 100%;
-
-        }
+      #banner {
+        height: 360px;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 16px;
+      }
     </style>
   </head>
   <body>
+    {% include 'nav.html' %}
+    <img
+      id="banner"
+      src="http://127.0.0.1:5000/static/banner.jpg"
+      class="img-fluid"
+    />
     <div class="container">
       <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
-      <img
-        id="banner"
-        src="http://127.0.0.1:5000/static/banner.jpg"
-        class="img-fluid"
-      />
-      <h2 class="text-center mt-2 mt-4">About Caleb Careers</h2>
-      <p></p>
-      <p class="lead">
-        Lorem ipsum dolor sit amet. Qui voluptates dicta aut voluptatem
-        voluptatum et debitis quia est alias doloremque eum porro officia in
-        veniam velit sed aliquid quos! Ut praesentium debitis At eius deleniti
-        cum deleniti nisi est explicabo repellat. Est error fugit non beatae
-        omnis ex omnis quidem aut tempore sapiente ut quia velit est aliquid
-        modi sit nemo explicabo.
-      </p>
+      <div class="row" style="margin-bottom: 16px">
+        <div class="col-md-6">
+          <p class="lead">
+            Lorem ipsum dolor sit amet. Qui voluptates dicta aut voluptatem
+            voluptatum et debitis quia est alias doloremque eum porro officia in
+            veniam velit sed aliquid quos! Ut praesentium debitis At eius
+            deleniti cum deleniti nisi est explicabo repellat. Est error fugit
+            non beatae omnis ex omnis quidem aut tempore sapiente ut quia velit
+            est aliquid modi sit nemo explicabo.
+          </p>
+        </div>
+        <div class="d-none d-md-block col-6">
+          <img
+            src="/static/people.avif"
+            style="height: 320px; border-radius: 4px"
+            alt=""
+          />
+        </div>
+      </div>
       <h2 class="text-center mt-2 mb-4">Job Openings</h2>
-      <p>
-        {% for job in jobs %}
-          {% include 'jobitem.html' %}
-        {% endfor %}
-      </p>
+      <p>{% for job in jobs %} {% include 'jobitem.html' %} {% endfor %}</p>
       <div>
         <div class="text-center">
-            <button class="btn btn-primary btn-lg">Contact us</button>
-            <p class="mt-4">Copyright 2024, Caleb Careers</p>
+          <a
+            class="btn btn-primary btn-lg"
+            href="mailto:hello@caleb.ai?subject=Question%20about%20Job%20Application&body=My%20name%3A%20%3Cyour%20name%20here%3E%0D%0A%0D%0AMy%20Resume%20link%3A%20%3Cresume%20link%3E%0D%0A%0D%0AMy%20LinkedIn%20link%3A%20%3CLinkedin%3E"
+            >Contact us</a>
         </div>
       </div>
     </div>
+    {% include 'footer.html' %}
   </body>
 </html>
