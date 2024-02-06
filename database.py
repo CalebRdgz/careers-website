@@ -1,6 +1,13 @@
 from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
+import os
 
-db_connection_string = "mysql+pymysql://dl1z7h9c1e1vywyzx8g1:pscale_pw_BkJK4K4jmn4ZzryGv0zkptnT3UscLAZxQQsi5aD2k2b@aws.connect.psdb.cloud/calebcareers?charset=utf8mb4"
+load_dotenv()
+
+DB_USER=os.getenv("DB_USER")
+DB_PASS=os.getenv("DB_PASS")
+
+db_connection_string = f"mysql+pymysql://{DB_USER}:{DB_PASS}@aws.connect.psdb.cloud/calebcareers?charset=utf8mb4"
 
 engine = create_engine(db_connection_string,
                        connect_args={
